@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colors, NAVBAR_HEIGHT } from '../../constants';
+import { useSelector } from "react-redux";
 
 const StyledWrapper = styled.div`
   position: fixed;
@@ -11,15 +12,17 @@ const StyledWrapper = styled.div`
   z-index: 100;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   border-bottom: 1px solid ${colors.black};
 `;
 
 const Navbar = () => {
+
+    const token = useSelector(state => state.token.token);
+    console.log('navbar : ',token)
     return (
         <StyledWrapper className="px-4">
-            <p>salam</p>
-            <p>salam</p>
+            { token?  <p>Welcome user !</p> : <p>Please Log in</p>}
         </StyledWrapper>
     );
 };
