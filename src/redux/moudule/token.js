@@ -4,11 +4,10 @@ const initialState = { token : null }
 
 export const tokenSlice = createSlice({
     name: 'token',
-    initialState:'',
+    initialState:{token : null},
     reducers: {
-        token: (state, action) => ({ ...initialState }),
         tokenAdd: (state, action) => ({ token : action.payload}),
-        tokenRemove: (state, action) => ({ token : false })
+        tokenRemove: (state, action) => (initialState)
     },
 });
 

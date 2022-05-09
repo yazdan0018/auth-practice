@@ -11,7 +11,7 @@ import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE } from "redux-persist
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: [token]
+    whitelist: 'token'
 };
 
 let persistedReducer = persistReducer(persistConfig, rootReducer);

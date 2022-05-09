@@ -33,10 +33,7 @@ const Login = () => {
         function handleSubmit(e) {
             e.preventDefault();
             dispatch(loginAction({ password: password, email: email }))
-
-            // else {
-            //     setDisplayLoading(false)
-            // }
+            // history({pathname : '/profile'})
         }
 
 
@@ -76,7 +73,7 @@ const Login = () => {
                                 if(!displayLoading){
                                     setLoginStatus(true)
                                 }
-                            }, 2000)
+                            }, 3000)
 
                         }}>Submit
                         </button>

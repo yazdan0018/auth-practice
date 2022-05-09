@@ -26,10 +26,10 @@ const Profile = () => {
         <Layout>
             <ProfileWrapper>
                 Profile
+                <button className='w-25 m-1' onClick={() => history({ pathname: '/' })}>Home</button>
                 <button className='bg-danger w-25 m-1' onClick={handleSubmit}>
                     Log out
                 </button>
-                <button className='w-25 m-1' onClick={() => history({ pathname: '/' })}>Home</button>
             </ProfileWrapper>
         </Layout>
     );
