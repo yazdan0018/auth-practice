@@ -1,27 +1,33 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import PrivateRoute from './PrivateRoute';
+import AuthenticatedRoute from './PrivateRoute';
 import Login from '../containers/login/Login';
 import Profile from '../containers/profile/Profile';
-import { useSelector } from "react-redux";
-import Home from "../containers/home/Home";
+import { useSelector } from 'react-redux';
+import Home from '../containers/home/Home';
+import UnAuthenticatedRoute from './UnAuthenticatedRoute';
 
 const Router = () => {
 
     const token = useSelector(state => state.token.token);
-    console.log('router : ',token)
+
     return (
         <Routes>
-            <Route path='/login' element={<Login/>}/>
             <Route path='/' element={<Home/>}/>
             <Route
                 path='/profile'
                 element={
-                    <PrivateRoute isAuthenticated={ token }>
-                        <Profile />
-                    </PrivateRoute>
+                    <AuthenticatedRoute isAuthenticated={token}>
+                        <Profile/>
+                    </AuthenticatedRoute>
                 }
             />
+            <Route path='/login'
+                   element={
+                       <UnAuthenticatedRoute isAuthenticated={token}>
+                           <Login/>
+                       </UnAuthenticatedRoute>
+                   }/>
         </Routes>
     );
 };

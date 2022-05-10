@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import styled from 'styled-components';
 import { colors, NAVBAR_HEIGHT } from '../../constants';
 
-const StyledContent = styled.div`
+const LayoutWrapper = styled.div`
   background-color: ${colors.white};
   width: 100vw;
   min-height: calc(100vh - ${NAVBAR_HEIGHT});
@@ -18,9 +18,9 @@ const Layout = ({ children }) => {
     return (
         <>
             <Navbar/>
-            <StyledContent>
+            <LayoutWrapper>
                 {children}
-            </StyledContent>
+            </LayoutWrapper>
         </>
     );
 };

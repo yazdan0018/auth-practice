@@ -19,10 +19,10 @@ const StyledWrapper = styled.div`
 const Navbar = () => {
 
     const token = useSelector(state => state.token.token);
-    console.log('navbar : ',token)
+
     return (
         <StyledWrapper className="px-4">
-            { token?  <p>Welcome user !</p> : <p>Please Log in</p>}
+            {token ? <p>Welcome user !</p> : <p>Please Log in</p>}
         </StyledWrapper>
     );
 };

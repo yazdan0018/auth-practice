@@ -13,29 +13,28 @@ const LoginWrapper = styled.div`
 
 const Login = () => {
         const dispatch = useDispatch();
+        let history = useNavigate();
         const login = useSelector(state => state.login);
+        const token = useSelector(state => state.token.token);
         const [email, setEmail] = useState('');
         const [password, setPassWord] = useState('');
-
         const [displayLoading, setDisplayLoading] = useState(false);
         const [loginstatus, setLoginStatus] = useState(false);
 
-        const token = useSelector(state => state.token.token);
-        console.log('token : ', token);
-        useEffect(() => {
-            if (token) {
-                return history({ pathname: '/profile' })
-            }
-        }, [token]);
-
-        let history = useNavigate();
+        // useEffect(() => {
+        //     if (token) {
+        //         return history({ pathname: '/profile' });
+        //     }
+        // }, [token]);
+        //
+        // if (token) {
+        //     return history({ pathname: '/profile' })
+        // }
 
         function handleSubmit(e) {
             e.preventDefault();
-            dispatch(loginAction({ password: password, email: email }))
-            // history({pathname : '/profile'})
+            dispatch(loginAction({ password: password, email: email }));
         }
-
 
         return (
             <Layout>
@@ -70,7 +69,7 @@ const Login = () => {
                                 }
                             }, 1000)
                             setTimeout(() => {
-                                if(!displayLoading){
+                                if (!displayLoading) {
                                     setLoginStatus(true)
                                 }
                             }, 3000)

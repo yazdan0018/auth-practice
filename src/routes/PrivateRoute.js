@@ -2,7 +2,7 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 
 
-const PrivateRoute = ({ isAuthenticated, children }) => {
+const AuthenticatedRoute = ({ isAuthenticated, children }) => {
     if (!isAuthenticated) {
         return <Navigate to="/login" replace />;
     }
@@ -10,4 +10,4 @@ const PrivateRoute = ({ isAuthenticated, children }) => {
     return children;
 };
 
-export default PrivateRoute;
+export default AuthenticatedRoute;

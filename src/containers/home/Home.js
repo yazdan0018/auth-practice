@@ -32,10 +32,10 @@ const Home = () => {
                     history({ pathname: '/profile' })
                 }}>Profile
                 </button>
-                <button className="btn bg-info w-25 m-1" onClick={() => {
+                {!token ? <button className="btn bg-info w-25 m-1" onClick={() => {
                     history({ pathname: '/login' })
                 }}>Login
-                </button>
+                </button> : ''}
                 {token ? <button className='btn bg-danger w-25 m-1' onClick={handleSubmit}>Log out</button> : ''}
             </HomeWrapper>
         </Layout>

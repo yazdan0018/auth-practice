@@ -9,8 +9,7 @@ import styled from "styled-components";
 const ProfileWrapper = styled.div`
   display: flex;
   flex-direction: column;
-
-  align-items: center
+  align-items: center;
 `;
 
 const Profile = () => {
